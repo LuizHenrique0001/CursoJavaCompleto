@@ -12,56 +12,81 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Escolha Qual Exercicio Voce Deseja Ver:");
-        System.out.println("1- rograma para ler um número inteiro, e depois dizer se este número é negativo ou não!");
-        System.out.println("2- programa para ler um número inteiro e dizer se este número é par ou ímpar");
-        System.out.println("3- 2 valores inteiros (A e B). Após, o programa deve mostrar uma mensagem Sao Multiplos ou Nao sao Multiplos");
+        System.out.println("1- programa que repita a leitura de uma senha até que ela seja válida");
+        System.out.println("2- Programa para ler as coordenadas (X,Y) de uma quantidade indeterminada de pontos no sistema cartesiano");
+        System.out.println("3- algoritmo para ler o tipo de combustível abastecido (codificado da seguinte forma: 1.Álcool 2.Gasolina 3.Diesel 4.Fim)");
 
         int n = sc.nextInt();
         if (n==1)
         {
-            System.out.print("Entre Com um Valor Interio:");
-            double val = sc.nextDouble();
+            System.out.print("Entre Com Uma Senha:");
 
-            if (val < 0) {
-                System.out.println("Valor Negativo");
-            }
+            int senha = sc.nextInt();
 
-            if (val >= 0) {
-                System.out.println("Valor Nao Negativo");
+            while(senha != 2007)
+            {
+                System.out.println("Senha incoreta");
+
+                 senha = sc.nextInt();
             }
+                System.out.print("Senha Correta");
+
         }
         if(n==2)
         {
 
-            System.out.print("Entre Com um Valor Interio:");
-            double val = sc.nextDouble();
+            int x = sc.nextInt();
+            int y = sc.nextInt();
 
-            if (val % 2 == 0)
-            {
-                System.out.println("Valor Par");
-            }
-            if (val % 2 != 0)
-            {
-                System.out.println("Valor Impar");
+            while (x != 0 && y != 0) {
+                if (x > 0 && y > 0) {
+                    System.out.println("primeiro");
+                }
+                else if (x < 0 && y > 0) {
+                    System.out.println("segundo");
+                }
+                else if (x < 0 && y < 0) {
+                    System.out.println("terceiro");
+                }
+                else {
+                    System.out.println("quarto");
+                }
+                x = sc.nextInt();
+                y = sc.nextInt();
             }
 
         }
         if(n==3)
         {
 
-            System.out.print("Entre Com um Valor Interio:");
-            double val = sc.nextDouble();
-            System.out.print("Entre Com Outro Valor Interio:");
-            double val2 = sc.nextDouble();
+            System.out.println(" 1.Gasolina 2.Diesel 3.Etanol 4.Fim");
+            int opcao = sc.nextInt();
 
-            if (val % val2 == 0 || val2 % val == 0)
+            int gasolina = 0;
+            int diesel = 0;
+            int etanol = 0;
+
+            while(opcao != 4)
             {
-                System.out.println("Sao Multiplos");
+                System.out.println(" 1.Gasolina 2.Diesel 3.Etanol 4.Fim");
+                gasolina = (opcao == 1) ? gasolina+1 : gasolina;
+                diesel = (opcao == 2) ? diesel+1 : diesel;
+                etanol = (opcao == 3) ? etanol+1 : etanol;
+
+                if(opcao <=0 || opcao >4)
+                {
+                    System.out.println(" Valor Invalido");
+                }
+
+                opcao = sc.nextInt();
+
             }
-            else
-            {
-                System.out.println("Nao Sao Multiplos");
-            }
+
+            System.out.println("OBRIGADO");
+
+            System.out.println("Gasolina:"+gasolina);
+            System.out.println("Diesel:"+diesel);
+            System.out.println("Etanol:"+etanol);
 
         }
     }
