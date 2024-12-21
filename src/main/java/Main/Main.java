@@ -1,8 +1,9 @@
 package Main;
 
-import Entities.Rectangle;
+import Entities.Employee;
 
 
+import java.util.Locale;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -10,13 +11,27 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+        Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        Rectangle rectangle = new Rectangle();
-        System.out.println("Enter Rectangle Width and Height:");
-        rectangle.Width = sc.nextInt();
-        rectangle.Height = sc.nextInt();
-        System.out.print(rectangle);
+        Employee emp = new Employee();
+
+        System.out.print("Name:");
+        emp.Name = sc.nextLine();
+        System.out.print("Gross Salary:");
+        emp.GrossSalary = sc.nextDouble();
+         System.out.print("Tax:");
+        emp.Tax = sc.nextDouble();
+
+        System.out.println("Employee:"+ emp);
+
+        System.out.print("Which percentage to increase salary?:");
+        double percentage = sc.nextDouble();
+
+        emp.IncreaseSalary(percentage);
+
+        System.out.print("Updated data:"+ emp);
+
 
         sc.close();
     }
